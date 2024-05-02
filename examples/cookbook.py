@@ -1,5 +1,5 @@
 # from https://docs.llamaindex.ai/en/stable/examples/multi_modal/ollama_cookbook/
-from llama_index_multi_modal_llms_mlx import MlxMultiModal
+from llama_index.multi_modal_llms.mlx import MlxMultiModal
 
 llm = MlxMultiModal(model="mlx-community/llava-llama-3-8b-v1_1-4bit")
 print("model loaded")
@@ -9,11 +9,7 @@ from llama_index.core import SimpleDirectoryReader
 from PIL import Image
 import matplotlib.pyplot as plt
 
-input_image_path = Path("restaurant_images")
-if not input_image_path.exists():
-    Path.mkdir(input_image_path)
-
-image_documents = SimpleDirectoryReader("./restaurant_images").load_data()
+image_documents = SimpleDirectoryReader("./assets/restaurant_images").load_data()
 
 
 from pydantic import BaseModel
